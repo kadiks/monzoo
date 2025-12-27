@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 
-jobs:
+jobs:z
   build:
     runs-on: macos-latest
     

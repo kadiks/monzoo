@@ -1,14 +1,11 @@
 import { Cookie, CookieJar } from "tough-cookie";
+import fs, { writeFileSync } from "fs";
 
 import { calculateStockToAdd } from "./calculateStockToAdd.js";
 import chalk from "chalk";
-import fs from "fs";
 import jsdom from "jsdom";
 
 const { JSDOM } = jsdom;
-
-const username = process.env.MONZOO_USERNAME;
-const password = process.env.MONZOO_PASSWORD;
 
 const baseURL = "https://monzoo.net";
 
@@ -17,11 +14,12 @@ const cookieJar = new CookieJar();
 
 const login = async (username, password) => {
   console.log(chalk.cyan(`\n📋 Step 1: Logging in...`));
-  
+
   console.log(chalk.dim("  ⏳ Human-like delay before login request..."));
   await randomDelay();
-  
+
   const url = `${baseURL}/login.php`;
+  console.log(chalk.dim(`  Sending login request to: ${url}`));
 
   const formData = new URLSearchParams();
   formData.append("pseudo", username);
@@ -36,22 +34,52 @@ const login = async (username, password) => {
     redirect: "manual",
   });
 
-  const setCookieHeaders = response.headers.getSetCookie();
-  for (const cookieStr of setCookieHeaders) {
-    const cookie = Cookie.parse(cookieStr);
-    if (cookie) {
-      await cookieJar.setCookie(cookie, url);
+  console.log(chalk.dim(`  Response status: ${response.status}`));
+  console.log(chalk.dim(`  Response URL: ${response.url}`));
+
+  const locationHeader = response.headers.get("location");
+  if (locationHeader) {
+    console.log(chalk.dim(`  Redirect location: ${locationHeader}`));
+
+    // Check if redirected to error page
+    if (locationHeader.includes("index.php?erreur=")) {
+      console.log(
+        chalk.red(
+          "✗ Login failed - invalid credentials or authentication error"
+        )
+      );
+      throw new Error(
+        "Login failed: Redirected to error page. Please check your username and password in Preferences."
+      );
     }
   }
 
-  console.log(chalk.green("✓ Login successful"));
+  const setCookieHeaders = response.headers.getSetCookie();
+  if (setCookieHeaders.length > 0) {
+    console.log(chalk.dim(`  Cookies received: ${setCookieHeaders.length}`));
+    for (const cookieStr of setCookieHeaders) {
+      const cookie = Cookie.parse(cookieStr);
+      if (cookie) {
+        console.log(chalk.dim(`    - ${cookie.key}`));
+        await cookieJar.setCookie(cookie, url);
+      }
+    }
+  } else {
+    console.log(chalk.yellow("  ⚠ No cookies received from login response"));
+  }
+
+  if (response.status >= 200 && response.status < 400) {
+    console.log(chalk.green("✓ Login successful"));
+  } else {
+    console.log(chalk.red(`✗ Login failed with status ${response.status}`));
+  }
+
   return response;
 };
 
 const fetchAuthenticatedPage = async (url) => {
   console.log(chalk.dim("  ⏳ Human-like delay before fetching page..."));
-  await randomDelay();
-  
+
   const cookies = await cookieJar.getCookieString(url);
 
   const response = await fetch(url, {
@@ -79,7 +107,8 @@ const getDocumentFromHTML = (html) => {
 
 // Generate a random delay between min and max seconds
 const randomDelay = (minSeconds = 5, maxSeconds = 12) => {
-  const delayMs = Math.random() * (maxSeconds - minSeconds) * 1000 + minSeconds * 1000;
+  const delayMs =
+    Math.random() * (maxSeconds - minSeconds) * 1000 + minSeconds * 1000;
   const delaySec = (delayMs / 1000).toFixed(2);
   console.log(chalk.dim(`  ⏳ Waiting ${delaySec}s before next request...`));
   return new Promise((resolve) => {
@@ -88,8 +117,10 @@ const randomDelay = (minSeconds = 5, maxSeconds = 12) => {
 };
 
 const getAllEnclosureInNeed = async () => {
-  console.log(chalk.cyan(`\n🏢 Step 2: Checking enclosures in need of care...`));
-  
+  console.log(
+    chalk.cyan(`\n🏢 Step 2: Checking enclosures in need of care...`)
+  );
+
   const { html, response } = await fetchAuthenticatedPage(
     `${baseURL}/enclosgestion1.php?t=0&v=0`
   );
@@ -97,7 +128,7 @@ const getAllEnclosureInNeed = async () => {
     console.log(chalk.red("✗ Page to get all enclosure is not accessible"));
     throw new Error("Page to get all enclosure is not accessible");
   }
-  
+
   const document = getDocumentFromHTML(html);
 
   const routesInNeed = [
@@ -105,14 +136,18 @@ const getAllEnclosureInNeed = async () => {
       'select#jumpMenu option[style="color:#FF0000"]'
     ),
   ].map((el) => el.value.replace(baseURL, ""));
-  
-  console.log(chalk.yellow(`Found ${routesInNeed.length} enclosure(s) in need`));
 
-  for (const routeInNeed of routesInNeed) {
+  console.log(
+    chalk.yellow(`Found ${routesInNeed.length} enclosure(s) in need`)
+  );
+
+  for (let i = 0; i < routesInNeed.length; i++) {
+    const routeInNeed = routesInNeed[i];
     await randomDelay();
+    console.log(chalk.dim(`  Checking enclosure ${i + 1}/${routesInNeed.length}...`));
     await fetchAuthenticatedPage(`${baseURL}${routeInNeed}&bot=1& #less`);
   }
-  
+
   console.log(chalk.green("✓ Enclosures checked"));
 };
 
@@ -137,7 +172,13 @@ const boutiqueStockType = {
 };
 
 const getStocks = async () => {
-  const html = fs.readFileSync("./fixtures/bureau4.html", "utf-8");
+  const { html, response } = await fetchAuthenticatedPage(
+    `${baseURL}/bureau4.php`
+  );
+  if (response.status !== 200) {
+    throw new Error("Page to get stocks is not accessible");
+  }
+
   const document = getDocumentFromHTML(html);
 
   const animalStocks = getAnimalFoodStocks(document);
@@ -164,13 +205,7 @@ const getStocks = async () => {
     ),
   ];
 
-  return [
-    animalStocks,
-    giftsStocks,
-    friesStocks,
-    drinksStocks,
-    iceCreamStocks,
-  ];
+  return [animalStocks, giftsStocks, friesStocks, drinksStocks, iceCreamStocks];
 };
 
 const getAnimalFoodStocks = (document) => {
@@ -207,9 +242,11 @@ const getBoutiqueStocks = (document, tableColumnIndex, elementType) => {
 };
 
 const addStock = async (stockEntry, amountToAdd) => {
-  console.log(chalk.dim(`  ⏳ Human-like delay before adding ${stockEntry.type} stock...`));
+  console.log(
+    chalk.dim(`  ⏳ Human-like delay before adding ${stockEntry.type} stock...`)
+  );
   await randomDelay();
-  
+
   const url = `${baseURL}/bureau4.php`;
   const cookies = await cookieJar.getCookieString(url);
 
@@ -259,10 +296,14 @@ const addStock = async (stockEntry, amountToAdd) => {
   });
 
   if (response.status !== 200) {
-    throw new Error(`Failed to add ${stockEntry.type} stock: HTTP ${response.status}`);
+    throw new Error(
+      `Failed to add ${stockEntry.type} stock: HTTP ${response.status}`
+    );
   }
 
-  console.log(chalk.green(`  ✓ Added ${amountToAdd} units of ${stockEntry.type}`));
+  console.log(
+    chalk.green(`  ✓ Added ${amountToAdd} units of ${stockEntry.type}`)
+  );
   return response;
 };
 
@@ -275,8 +316,10 @@ const addStock = async (stockEntry, amountToAdd) => {
  * 4. Calculate and add stock if needed
  *
  * Returns a summary object of actions performed for UI/logging.
+ * @param {string} username - MonZoo username from preferences
+ * @param {string} password - MonZoo password from Keychain
  */
-export const runMonzooCycle = async () => {
+export const runMonzooCycle = async (username, password) => {
   const startedAt = new Date().toISOString();
   const summary = {
     startedAt,
@@ -295,20 +338,32 @@ export const runMonzooCycle = async () => {
     const stocks = await getStocks();
     console.log(chalk.green("✓ Stocks fetched"));
 
-    console.log(chalk.cyan(`\n📝 Step 4: Checking stock levels and adding if necessary...`));
+    console.log(
+      chalk.cyan(
+        `\n📝 Step 4: Checking stock levels and adding if necessary...`
+      )
+    );
     for (const stockEntry of stocks) {
       const amountToAdd = calculateStockToAdd(stockEntry);
 
       if (amountToAdd > 0) {
-        console.log(chalk.yellow(`  ${stockEntry.type}: needs ${amountToAdd} units`));
+        console.log(
+          chalk.yellow(`  ${stockEntry.type}: needs ${amountToAdd} units`)
+        );
         await addStock(stockEntry, amountToAdd);
         summary.itemsAdded.push({ type: stockEntry.type, amount: amountToAdd });
       } else {
         const minSafe = stockEntry.dailyConsumption * 3;
         console.log(
-          chalk.cyan(`  ✓ ${stockEntry.type}: stock is safe (${stockEntry.stocks} >= ${minSafe})`)
+          chalk.cyan(
+            `  ✓ ${stockEntry.type}: stock is safe (${stockEntry.stocks} >= ${minSafe})`
+          )
         );
-        summary.itemsSafe.push({ type: stockEntry.type, stocks: stockEntry.stocks, minSafe });
+        summary.itemsSafe.push({
+          type: stockEntry.type,
+          stocks: stockEntry.stocks,
+          minSafe,
+        });
       }
     }
 

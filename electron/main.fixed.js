@@ -213,14 +213,20 @@ async function triggerRun(reason = 'scheduled') {
   addHistory({ time: now.toISOString(), message: `Run started (${reason})` });
 
   try {
-    // Provide credentials to runner
-    process.env.MONZOO_USERNAME = settings.username || '';
+    // Load credentials from settings and keychain
+    const username = settings.username || '';
+    let password = '';
     try {
-      const pwd = await keytar.getPassword('net.monzoo.bot', 'monzoo-password');
-      process.env.MONZOO_PASSWORD = pwd || '';
-    } catch {}
+      password = await keytar.getPassword('net.monzoo.bot', 'monzoo-password') || '';
+    } catch (e) {
+      console.warn(`Could not retrieve password from Keychain: ${e.message}`);
+    }
 
-    const summary = await runMonzooCycle();
+    if (!username || !password) {
+      throw new Error('Username or password not configured. Please update your credentials in Preferences.');
+    }
+
+    const summary = await runMonzooCycle(username, password);
     const finished = new Date();
 
     if (summary.ok) {

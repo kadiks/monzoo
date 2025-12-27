@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="identifier-url" content="https://monzoo.net">
+	<meta http-equiv="content-language" content="FR">
+	<title>MonZoo, jeu gratuit de simulation de zoo.</title>
+	<meta name="description" content="Premier des jeux de zoo sur navigateur. Gérez tous les aspects de votre zoo virtuel avec notre jeu gratuit de gestion d'animaux en ligne. Sans téléchargement.">
+	<meta name="google-site-verification" content="ZOX6Oxo5ZU_MYpExlDqCymq2oP22wh4bEzHGpAIAlas"/>
+	<meta name="author" content="Campo Sebastien">
+	<meta name="copyright" content="https://monzoo.net">
+	<meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW, NOYDIR, NOODP, ALL">
+	<link rel="image_src" href="https://monzoo.net/mini_monzoo.jpg"/>
+	<link href="https://monzoo.net/style2.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width">
+
+	<meta property="og:url" content="https://monzoo.net"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="Monzoo, Jeu gratuit de simulation de Zoo"/>
+	<meta property="og:description" content="Jeu de Zoo par navigateur, un amusement pour toute la famille. Gérez tous les aspects de votre zoo virtuel avec notre site de jeu d'animaux en ligne gratuit."/>
+	<meta property="og:image" content="https://monzoo.net/mini_monzoo.jpg"/>
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Monzoo" />
+
+
+
+
+	<style>
+		@-webkit-keyframes AutoSlide {
+			0%,
+			10%,
+			100% {
+				left: 0px;
+				/* première image et dernière*/
+			}
+			25%,
+			35% {
+				left: -317px;
+				/*2ème image*/
+			}
+			50%,
+			60% {
+				left: -634px;
+				/*3ème image*/
+			}
+			75%,
+			85% {
+				left: -951px;
+				/*3ème image*/
+			}
+		}
+
+		@-moz-keyframes AutoSlide {
+			0%,
+			10%,
+			100% {
+				left: 0px;
+				/* première image et dernière*/
+			}
+			25%,
+			35% {
+				left: -317px;
+				/*2ème image*/
+			}
+			50%,
+			60% {
+				left: -634px;
+				/*3ème image*/
+			}
+			75%,
+			85% {
+				left: -951px;
+				/*3ème image*/
+			}
+		}
+
+		@keyframes AutoSlide {
+			0%,
+			10%,
+			100% {
+				left: 0px;
+				/* première image et dernière*/
+			}
+			25%,
+			35% {
+				left: -317px;
+				/*2ème image*/
+			}
+			50%,
+			60% {
+				left: -634px;
+				/*3ème image*/
+			}
+			75%,
+			85% {
+				left: -951px;
+				/*3ème image*/
+			}
+		}
+
+		#slideshow {
+			position: relative;
+			/*le parent positionné*/
+			width: 317px;
+			/*limite en largeur (1 élément du slideshow)*/
+			height: 152px;
+			/*limite en hauteur*/
+			margin: 0 auto;
+			overflow: hidden;
+			/*on cache ce qui déborde*/
+		}
+
+		#sContent li {
+			display: inline;
+			/*on aligne les éléments du slideshow*/
+		}
+
+		#sContent {
+			position: absolute;
+			/*on sort l'élément du flux*/
+			top: 0;
+			/*on le positionne précisément dans ...*/
+			left: 0px;
+			/*l'angle haut gauche de son parent positionné*/
+			width: 1268px;
+			margin: 0;
+			padding: 0;
+			/*CSS3 webkit keyframes animation*/
+			-webkit-animation-name: AutoSlide;
+			-webkit-animation-duration: 10s;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: ease-in-out;
+			/*CSS3 moz keyframes animation*/
+			-moz-animation-name: AutoSlide;
+			-moz-animation-duration: 10s;
+			-moz-animation-iteration-count: infinite;
+			-moz-animation-timing-function: ease-in-out;
+			/*CSS3 W3C keyframes animation*/
+			animation-name: AutoSlide;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+			animation-timing-function: ease-in-out;
+		}
+	</style>
+	
+
+</head>
+
+<body>
+	<div class="header">
+		
+<script type="text/javascript" src="https://monzoo.net/tip/wz_tooltip.js"></script>
+<script type="text/javascript" src="https://monzoo.net/tip/tip_centerwindow.js"></script>
+<script type="text/javascript" src="https://monzoo.net/tip/tip_balloon.js"></script>
+
+<div style="width: 825px; height: 132px; background-image: url('images/header/headerfondanim.jpg')">
+	<div style="position: absolute; left: 224px; top: 0px;">
+			<!--<video loop="loop" autoplay >--><img src="images/header/headermonzoo_02.gif">
+		<!--<img src="images/header/headermonzoo_02.gif" />--></div>
+
+	<div style="position: absolute; left: 43px; top: 0px;"><img src="images/header/headermonzoo_roue_02.gif" /></div>
+
+	<div style="position: absolute; left: 415px; top: 58px;"><img src="images/header/headermonzoo_fontaine_02.gif" /></div>
+	<div style="position: absolute; left: 635px; top: 0px;">
+			<img src="images/header/headermonzoo_cascade_02.gif">
+		<!--<img src="images/header/headermonzoo_cascade_02.gif" />--></div>
+
+</div>
+	</div>
+	<div class="conteneur">
+		<div class="minibarre"></div>
+		<div class="menu"> <img src="images/menu/monzoo.gif" alt="Logo - Animal pandas" width="186" />
+
+  <a href="index.php"><div class="link">Accueil</div></a>
+
+  <a href="inscription_jeu_de_zoo_virtuel.php" title="jeu virtuel" class="deux"><div class="link">Inscription</div></a>
+
+  <div style="position:relative"><img src="images/menu/entreeparc.gif" alt="Menu - Monzoo" width="186" height="40" border="0" /></div>
+  <form name="form" id="form" method="post" action="login.php">
+
+    <div align="center" style="margin-bottom:5px; font-size:18px;"> Pseudo<br>
+      <input name="pseudo" type="text" class="champs" maxlength="18" />
+
+    </div>
+
+    <div align="center" style="margin-bottom:5px; font-size:18px;">Mot de Passe<br>
+      <input name="passe" type="password" class="champs" maxlength="18"/>
+
+    </div>
+
+	  <div align="center" style="margin-bottom:5px; margin-top: 10px;">
+		  <input type="submit" name="Submit" value="Envoyer" class="submit" style="font-size: 20px;" /></div>
+
+  </form>
+
+  
+
+    
+
+	
+<a href="cgu_jeu_zoo.php" class="deux"><div class="link">CGU</div></a>
+<a href="jeux_de_zoo.php" class="deux"><div class="link">R&egrave;gles du jeu</div></a>
+	<a href="contact_jeu_zoo.php" class="deux"><div class="link">Contact</div></a>
+</div>
+
+		<div class="content_home">
+			
+			<div id="present" style="width:645px; height:1119px; z-index:0; position: relative;">
+				<div style="width: 645px; height: 1119px;">
+					<div style="width: 317px; height: 152px; position: absolute;  left: 38px; top: 41px;">
+						<div id="slideshow">
+							<ul id="sContent">
+								<li><img src="images/presentation_jeu_monzoo/presentation_monzoo_bloc1_zoo1.png" alt="Jeu de Zoo gratuit"/></li><li><img src="images/presentation_jeu_monzoo/presentation_monzoo_bloc1_zoo2.png" alt="Jeu gratuit d'animaux"/></li><li><img src="images/presentation_jeu_monzoo/presentation_monzoo_bloc1_zoo3.png" alt="Jeu d'animaux en ligne"/></li><li><img src="images/presentation_jeu_monzoo/presentation_monzoo_bloc1_zoo4.png" alt="Jeux de zoo sur navigateur"/></li>
+							</ul>
+						</div>
+					</div>
+					<div style="width: 645px; height: 1119px; position: absolute; background-image:url('images/presentation_jeu_monzoo/presentation_monzoo_bg02.png')"></div>
+					<div style="width: 86px; height: 70px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_ecran1_1.png'); left: 320px; top: 29px;"></div>
+					<div style="width: 103px; height: 81px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_ecran2_2.gif'); left: 409px; top: 30px;"></div>
+					<div style="width: 94px; height: 114px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_ecran3_2.gif'); left: 501px; top: 54px;"></div>
+					<div style="width: 100px; height: 121px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_graphique.jpg'); left: 470px; top: 442px;"></div>
+					<div style="width: 129px; height: 23px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_graphique_bas.gif'); left: 455px; top: 563px;"></div>
+
+					<div style="width: 281px; height: 287px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_bonhomme.gif'); left: 358px; top: 655px;"></div>
+					<div style="width: 55px; height: 156px; position: absolute; background-image: url('images/presentation_jeu_monzoo/presentation_monzoo_coccinelle_op.gif'); left: 10px; top: 54px;"></div>
+					<div style="width: 645px; height: 1119px; position: absolute; background-image:url('images/presentation_jeu_monzoo/presentation_monzoo_bloctextes.png')"></div>
+					<div style="width: 172px; height: 42px; position: absolute; left: 238px; top: 1068px;">
+						<a href="https://monzoo.net/inscription_jeu_de_zoo_virtuel.php">
+					<img src="images/presentation_jeu_monzoo/presentation_monzoo_boutoninscription.png" onmouseover="this.src='images/presentation_jeu_monzoo/presentation_monzoo_boutoninscription_orange.png'" onmouseout="this.src='images/presentation_jeu_monzoo/presentation_monzoo_boutoninscription.png'" alt="Inscription jeux de zoo gratuit" />
+					</a>
+
+					</div>
+				</div>
+			</div>
+			<br/>
+		</div>
+		<div style="clear:both;"></div>
+		<div class="copy"></div>
+	</div>
+	<div align="center" style=" margin: auto; font-size:13px; width:825px; margin-top:5px; text-align: justify;">
+
+<h1 style="font-size: 14px; color: #634425; font-weight: normal; float: none;"><a href="https://monzoo.net" title="jeu de zoo">Monzoo.net</a>, le plus ancien des <strong>jeux de zoo</strong>, souvent copi&eacute;, jamais &eacute;gal&eacute;. Jouez <strong>gratuitement</strong> &agrave; votre nouveau <strong>jeu de simulation de parc animalier</strong>. </h1>
+
+<!--
+	<div style="text-align: center;">
+	<div class="fb-like" data-href="https://monzoo.net" data-width="" data-layout="box_count" data-action="like" data-size="small" data-share="true" style="margin-top: 12px;"></div>
+</div>-->
+  <h2 style="font-size: 14px; color: #634425; font-weight: normal;">Construisez votre parc selon vos envies, enclos, hotel, train, attractions, boutiques...
+	  Elevez vos <strong>animaux</strong>, leurs b&eacute;b&eacute;s et prenez soin de + de 300 esp&egrave;ces animales diff&eacute;rentes ainsi que des <strong>dinosaures</strong> de l'extension dinosoria !
+  G&eacute;rez librement vos employ&eacute;s, vos d&eacute;penses, vos recettes, vos stocks ...
+  De nombreuses occupations vous attendent, missions, explorations, collections... et des surprises !</h2>
+  <strong>Partenaires :</strong> <a href="https://lasagadulancier.com/" title="impressions de figurines 3D" target="_blank">La Saga du lancier</a>
+</div>
+
+</body>
+</html>
