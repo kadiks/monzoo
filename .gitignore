@@ -1,3 +1,13 @@
 node_modules
 .DS_Store
 .env
+
+# Build outputs
+dist
+build
+*.dmg
+*.zip
+*.app
+
+# Electron builder
+.electron-builder-cache

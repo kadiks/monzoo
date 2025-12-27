@@ -2,9 +2,11 @@
   "name": "monzoo",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "electron/main.fixed.js",
   "scripts": {
-    "start": "node --env-file=.env index.js",
+    "cli": "node --env-file=.env index.js",
+    "app": "electron .",
+    "build": "electron-builder -m",
     "test": "vitest"
   },
   "keywords": [],
@@ -12,12 +14,40 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "ansi-to-html": "^0.7.2",
     "chalk": "^5.6.2",
     "cheerio": "^1.1.0",
     "jsdom": "^26.1.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "keytar": "^7.9.0",
     "tough-cookie": "^6.0.0"
   },
   "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
     "vitest": "^3.2.4"
+  },
+  "build": {
+    "appId": "net.monzoo.bot",
+    "productName": "MonZoo Bot",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": ["dmg", "zip"]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
   }
 }

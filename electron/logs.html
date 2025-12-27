@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>MonZoo Logs</title>
+    <style>
+      body { margin: 0; font-family: -apple-system, system-ui, sans-serif; }
+      header { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #ddd; }
+      header h1 { font-size: 16px; margin: 0; flex: 1; }
+      #controls button { margin-left: 6px; }
+      #log { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; white-space: pre-wrap; padding: 10px; height: calc(100vh - 48px); overflow: auto; background: #0b0b0b; color: #e6e6e6; }
+      .log-info { color: #b3e5fc; }
+      .log-warn { color: #ffecb3; }
+      .log-error { color: #ffccbc; }
+      .time { color: #aaa; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>MonZoo Logs</h1>
+      <div id="controls">
+        <button id="pauseBtn">Pause</button>
+        <button id="resumeBtn" disabled>Resume</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+    </header>
+    <div id="log"></div>
+    <script src="logs.js"></script>
+  </body>
+  </html>

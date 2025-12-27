@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>Preferences</title>
+    <style>
+      body { font-family: -apple-system, system-ui, sans-serif; padding: 16px; }
+      h1 { font-size: 18px; margin: 0 0 12px; }
+      label { display: block; margin: 10px 0 4px; font-weight: 600; }
+      input[type="text"], input[type="password"], input[type="number"] { width: 100%; padding: 6px 8px; box-sizing: border-box; }
+      .row { display: flex; gap: 8px; }
+      .row > div { flex: 1; }
+      .actions { margin-top: 16px; display: flex; gap: 8px; justify-content: flex-end; }
+      .hint { color: #666; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>Preferences</h1>
+
+    <label>Username</label>
+    <input id="username" type="text" placeholder="monzoo username" />
+
+    <label>Password <span class="hint" id="pwdHint"></span></label>
+    <input id="password" type="password" placeholder="••••••••" />
+
+    <label><input id="scheduleEnabled" type="checkbox" checked /> Enable hourly schedule</label>
+
+    <div class="row">
+      <div>
+        <label>Run minute (0-59)</label>
+        <input id="runMinute" type="number" min="0" max="59" />
+      </div>
+      <div>
+        <label>AM start hour (0-23)</label>
+        <input id="amStartHour" type="number" min="0" max="23" />
+      </div>
+      <div>
+        <label>PM start hour (0-23)</label>
+        <input id="pmStartHour" type="number" min="0" max="23" />
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="cancelBtn">Cancel</button>
+      <button id="saveBtn">Save</button>
+    </div>
+
+    <script src="preferences.js"></script>
+  </body>
+  </html>

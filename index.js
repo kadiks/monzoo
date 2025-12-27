@@ -16,7 +16,7 @@ const baseURL = "https://monzoo.net";
 const cookieJar = new CookieJar();
 
 const login = async (username, password) => {
-  console.log(chalk.blue(`\n📋 Step 1: Logging in...`));
+  console.log(chalk.cyan(`\n📋 Step 1: Logging in...`));
   
   console.log(chalk.dim("  ⏳ Human-like delay before login request..."));
   await randomDelay();
@@ -88,7 +88,7 @@ const randomDelay = (minSeconds = 5, maxSeconds = 12) => {
 };
 
 const getAllEnclosureInNeed = async () => {
-  console.log(chalk.blue(`\n🏢 Step 2: Checking enclosures in need of care...`));
+  console.log(chalk.cyan(`\n🏢 Step 2: Checking enclosures in need of care...`));
   
   const { html, response } = await fetchAuthenticatedPage(
     `${baseURL}/enclosgestion1.php?t=0&v=0`
@@ -273,40 +273,53 @@ const addStock = async (stockEntry, amountToAdd) => {
  * 2. Check enclosures that need care
  * 3. Get current stock levels
  * 4. Calculate and add stock if needed
+ *
+ * Returns a summary object of actions performed for UI/logging.
  */
-const run = async () => {
-  try {
-    // Step 1: Login
-    await login(username, password);
+export const runMonzooCycle = async () => {
+  const startedAt = new Date().toISOString();
+  const summary = {
+    startedAt,
+    finishedAt: null,
+    itemsAdded: [], // { type, amount }
+    itemsSafe: [], // { type, stocks, minSafe }
+    errors: [],
+    ok: true,
+  };
 
-    // Step 2: Check enclosures in need
+  try {
+    await login(username, password);
     await getAllEnclosureInNeed();
 
-    // Step 3: Get current stocks
-    console.log(chalk.blue(`\n📦 Step 3: Fetching current stocks...`));
+    console.log(chalk.cyan(`\n📦 Step 3: Fetching current stocks...`));
     const stocks = await getStocks();
     console.log(chalk.green("✓ Stocks fetched"));
 
-    // Step 4: Calculate and add stock if needed
-    console.log(chalk.blue(`\n📝 Step 4: Checking stock levels and adding if necessary...`));
-    
+    console.log(chalk.cyan(`\n📝 Step 4: Checking stock levels and adding if necessary...`));
     for (const stockEntry of stocks) {
       const amountToAdd = calculateStockToAdd(stockEntry);
-      
+
       if (amountToAdd > 0) {
         console.log(chalk.yellow(`  ${stockEntry.type}: needs ${amountToAdd} units`));
         await addStock(stockEntry, amountToAdd);
+        summary.itemsAdded.push({ type: stockEntry.type, amount: amountToAdd });
       } else {
-        console.log(chalk.cyan(`  ✓ ${stockEntry.type}: stock is safe (${stockEntry.stocks} >= ${stockEntry.dailyConsumption * 3})`));
+        const minSafe = stockEntry.dailyConsumption * 3;
+        console.log(
+          chalk.cyan(`  ✓ ${stockEntry.type}: stock is safe (${stockEntry.stocks} >= ${minSafe})`)
+        );
+        summary.itemsSafe.push({ type: stockEntry.type, stocks: stockEntry.stocks, minSafe });
       }
     }
 
     console.log(chalk.green(`\n✅ All done!\n`));
+    summary.finishedAt = new Date().toISOString();
+    return summary;
   } catch (error) {
+    summary.ok = false;
+    summary.errors.push(error.message || String(error));
+    summary.finishedAt = new Date().toISOString();
     console.error(chalk.red(`\n❌ Error: ${error.message}\n`));
-    process.exit(1);
+    return summary;
   }
 };
-
-// Execute the workflow
-run();
