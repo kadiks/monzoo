@@ -1,13 +1,14 @@
 {
   "name": "monzoo",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "type": "module",
   "main": "electron/main.fixed.js",
   "scripts": {
     "cli": "node --env-file=.env index.js",
     "app": "electron .",
     "build": "electron-builder -m",
-    "test": "vitest"
+    "test": "vitest",
+    "version": "node scripts/version.js"
   },
   "keywords": [],
   "author": "",
@@ -33,7 +34,10 @@
     "productName": "MonZoo Bot",
     "mac": {
       "category": "public.app-category.utilities",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "dmg": {
       "contents": [
