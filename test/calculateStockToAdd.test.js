@@ -1,5 +1,6 @@
-import { describe, it, expect } from "vitest";
-import calculateStockToAdd from "./calculateStockToAdd";
+import { describe, expect, it } from "vitest";
+
+import { calculateStockToAdd } from "../calculateStockToAdd.js";
 
 describe("calculateStockToAdd", () => {
   describe("Valid cases", () => {

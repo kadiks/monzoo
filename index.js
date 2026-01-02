@@ -16,7 +16,7 @@ const login = async (username, password) => {
   console.log(chalk.cyan(`\n📋 Step 1: Logging in...`));
 
   console.log(chalk.dim("  ⏳ Human-like delay before login request..."));
-  await randomDelay();
+  // await randomDelay();
 
   const url = `${baseURL}/login.php`;
   console.log(chalk.dim(`  Sending login request to: ${url}`));
@@ -74,6 +74,18 @@ const login = async (username, password) => {
     console.log(chalk.red(`✗ Login failed with status ${response.status}`));
   }
 
+  // If we have a valid redirect location (not error), follow it
+  if (locationHeader && !locationHeader.includes("index.php?erreur=")) {
+    console.log(chalk.dim(`  Following redirect to load page...`));
+    const redirectUrl = locationHeader.startsWith("http")
+      ? locationHeader
+      : `${baseURL}/${locationHeader}`;
+
+    const { response } = await fetchAuthenticatedPage(redirectUrl);
+
+    console.log(chalk.dim(`  Redirect page loaded: ${response.status}`));
+  }
+
   return response;
 };
 
@@ -116,6 +128,40 @@ const randomDelay = (minSeconds = 5, maxSeconds = 12) => {
   });
 };
 
+// Save HTML response to fixtures for debugging
+const saveHtmlFixture = (html, filename) => {
+  const now = new Date();
+  const timestamp = now.toISOString().replace(/[:.]/g, "-").slice(0, -5);
+  const fixturesDir = "./fixtures";
+  if (!fs.existsSync(fixturesDir)) {
+    fs.mkdirSync(fixturesDir, { recursive: true });
+  }
+  const fixturesPath = `${fixturesDir}/${filename}-${timestamp}.html`;
+  writeFileSync(fixturesPath, html);
+  console.log(chalk.dim(`  Saved response to ${fixturesPath}`));
+};
+
+// Load HTML from fixtures for debugging
+const loadHtmlFixture = (filename) => {
+  const fixturesPath = `./fixtures/${filename}`;
+  const html = fs.readFileSync(fixturesPath, "utf-8");
+  console.log(chalk.dim(`  Loaded fixture from ${fixturesPath}`));
+  return html;
+};
+
+// Extract routes in need from HTML
+export const extractRoutesInNeed = (html) => {
+  const document = getDocumentFromHTML(html);
+
+  const routesInNeed = [
+    ...document.querySelectorAll(
+      'select#jumpMenu option[style="color:#FF0000"]'
+    ),
+  ].map((el) => el.value.replace(baseURL, ""));
+
+  return routesInNeed;
+};
+
 const getAllEnclosureInNeed = async () => {
   console.log(
     chalk.cyan(`\n🏢 Step 2: Checking enclosures in need of care...`)
@@ -129,13 +175,12 @@ const getAllEnclosureInNeed = async () => {
     throw new Error("Page to get all enclosure is not accessible");
   }
 
-  const document = getDocumentFromHTML(html);
+  // Save HTML to fixtures for debugging
+  saveHtmlFixture(html, "enclosgestion1");
 
-  const routesInNeed = [
-    ...document.querySelectorAll(
-      'select#jumpMenu option[style="color:#FF0000"]'
-    ),
-  ].map((el) => el.value.replace(baseURL, ""));
+  // const html = loadHtmlFixture('enclosgestion1-2025-12-31T15-41-23.html');
+
+  const routesInNeed = extractRoutesInNeed(html);
 
   console.log(
     chalk.yellow(`Found ${routesInNeed.length} enclosure(s) in need`)
@@ -144,7 +189,9 @@ const getAllEnclosureInNeed = async () => {
   for (let i = 0; i < routesInNeed.length; i++) {
     const routeInNeed = routesInNeed[i];
     await randomDelay();
-    console.log(chalk.dim(`  Checking enclosure ${i + 1}/${routesInNeed.length}...`));
+    console.log(
+      chalk.dim(`  Checking enclosure ${i + 1}/${routesInNeed.length}...`)
+    );
     await fetchAuthenticatedPage(`${baseURL}${routeInNeed}&bot=1& #less`);
   }
 
@@ -345,15 +392,17 @@ export const runMonzooCycle = async (username, password) => {
     );
     for (const stockEntry of stocks) {
       const amountToAdd = calculateStockToAdd(stockEntry);
+      const minSafe = stockEntry.dailyConsumption * 3;
 
       if (amountToAdd > 0) {
         console.log(
-          chalk.yellow(`  ${stockEntry.type}: needs ${amountToAdd} units`)
+          chalk.yellow(
+            `  ${stockEntry.type}: needs ${amountToAdd} units (${stockEntry.stocks} >= ${minSafe})`
+          )
         );
         await addStock(stockEntry, amountToAdd);
         summary.itemsAdded.push({ type: stockEntry.type, amount: amountToAdd });
       } else {
-        const minSafe = stockEntry.dailyConsumption * 3;
         console.log(
           chalk.cyan(
             `  ✓ ${stockEntry.type}: stock is safe (${stockEntry.stocks} >= ${minSafe})`

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">	
+<title>Monzoo.net, Jeu gratuit - G&eacute;rez votre parc animalier (zoo)</title>
+<meta name="description" content="Jeu de simulation de gestion de parc animalier. Devenez gerant d'un zoo. Monzoo compte + de 600.000 joueurs actifs et 70 millions d'animaux élevés en captivité"/>
+<meta name="keywords" content="le zoo, zoo, jeu animaux, jeux, jeux animaux, pandas, koala, elevage, jeu, simulation, jeu de simulation, jeu elevage, jeu zoo, jeux zoo"/>
+<meta name = "robots" content = "INDEX, FOLLOW"/>
+<link href="style2.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width">	
+<style type="text/css">
+.Style4 {font-size: 16px}
+</style>
+
+<script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+</head>
+<body>
+<div class="header">
+  
+<script type="text/javascript" src="https://monzoo.net/tip/wz_tooltip.js"></script>
+<script type="text/javascript" src="https://monzoo.net/tip/tip_centerwindow.js"></script>
+<script type="text/javascript" src="https://monzoo.net/tip/tip_balloon.js"></script>
+
+<div style="width: 825px; height: 132px; background-image: url('images/header/headerfondanim.jpg')">
+	<div style="position: absolute; left: 224px; top: 0px;">
+			<!--<video loop="loop" autoplay >--><img src="images/header/headermonzoo_02.gif">
+		<!--<img src="images/header/headermonzoo_02.gif" />--></div>
+
+	<div style="position: absolute; left: 43px; top: 0px;"><img src="images/header/headermonzoo_roue_02.gif" /></div>
+
+	<div style="position: absolute; left: 415px; top: 58px;"><img src="images/header/headermonzoo_fontaine_02.gif" /></div>
+	<div style="position: absolute; left: 635px; top: 0px;">
+			<img src="images/header/headermonzoo_cascade_02.gif">
+		<!--<img src="images/header/headermonzoo_cascade_02.gif" />--></div>
+
+</div>
+</div>
+<div class="conteneur">
+  <div class="minibarre"></div>
+  <!--<div style=" position:relative; margin: auto;  background-color: #85623e; height: 90px; max-height: 90px; overflow: hidden; text-align: center">-->
+
+<!--	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px; text-align: center;"
+     data-ad-client="ca-pub-7390953315171239"
+     data-ad-slot="7065904056"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->
+
+
+<!--</div>-->
+
+
+<div class="menu">
+<img src="images/menu/monzoo.gif" alt="Logo - Animal pandas" width="186" />
+<a href="zonemembre.php"><div class="link">Carte du zoo</div></a>
+<a href="bureau.php"><div class="link">Bureau</div></a>
+<a href="animaux.php"><div class="link">Intendance</div></a>
+<a href="bourse.php"><div class="link">Bourse</div></a>
+<a href="missions.php"><div class="link">Missions</div></a>
+<a href="event.php" ><div class="link">Messages</div></a>
+<a href="classement.php"><div class="link">Classement</div></a>
+<a href="team.php"><div class="link">Team</div></a>
+<a href="vip.php"><div class="link">Bonus VIP</div></a>
+<a href="fidelite.php"><div class="link">Bonus fid&eacute;lit&eacute;</div></a>
+
+
+<a href="bureau3_new.php"><div class="link">+ de Zoo'z</div></a>
+<a href="bureau3_new.php"><div class="link">+ de Mise &agrave; jour</div></a>
+
+
+<a href="parrainage.php"><div class="link">Parrainage</div></a>
+<a href="moncompte.php"><div class="link">Votre compte</div></a>
+<a href="index.php?deco"><div class="link">D&eacute;connexion</div></a>
+<br />
+<img src="images/menu/aidesjeu.gif" width="186" height="40">
+<a href="cbd.php" ><div class="link" style="position:relative;">
+Tutoriel
+	</div></a>
+<a href="regle.php">
+<div class="link">R&egrave;gles du jeu</div></a>
+<a href="https://tawk.to/monzoo" target="_blank"><div class="link">Support en Live</div></a>
+<a href="https://monzoo.net/forumv2/login.php?action=in" target="_blank"><div class="link" style="color:green" >Forum</div></a>
+<a href="cgu_jeu_zoo.php" target="_blank"><div class="link">CGU</div></a>
+<a href="contact_jeu_zoo.php" target="_blank"><div class="link">Contact</div></a>
+	
+</div>
+  <div class="content_site">
+    <!-- PAGE -->
+    <table width="600" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+
+
+
+<div style="position:relative;background-image:url(images/barremenu.gif);width:600px;height:50px; color:#a44f21; font-weight:bold; margin:0px; padding:0px;">
+
+
+
+  <div style="position:relative; float:left; width:125px; margin-top:20px; padding-left:10px; text-align:center;">Cleo05</div>
+
+
+
+  <div style="position:relative; float:left; width:79px; margin-top:23px; margin-left:21px; text-align:center;" onmouseover="Tip('Votre&nbsp;argent&nbsp;virtuel', ABOVE, true)" onmouseout="UnTip()">3785622</div>
+
+
+
+  <div style="position:relative; float:left; width:50px; margin-top:20px; margin-left:52px;  text-align:center; " onmouseover="Tip('Nombre&nbsp;de&nbsp;visiteurs&nbsp;dans&nbsp;votre&nbsp;parc', ABOVE, true)" onmouseout="UnTip()">1171</div>
+
+
+
+  <div style="position:relative;float:left; width:100px; margin-top:23px; margin-left:35px; height:19px; text-align:left;" onmouseover="Tip('Sant&eacute;&nbsp;de&nbsp;vos&nbsp;animaux', ABOVE, true)" onmouseout="UnTip()">
+    <div style=" width:100%; background-image:url(images/barrerouge2.jpg); height:19px; font-size:1px;"></div>
+ </div>
+
+
+
+  <a href="https://monzoo.net/regle.php#bareme"><div style="position:relative; float:left; width:75px; margin-top:20px; margin-left:23px;  text-align:center; cursor:pointer;" onmouseover="Tip('Prestige&nbsp;de&nbsp;votre&nbsp;parc', ABOVE, true)" onmouseout="UnTip()">54.44%
+	  </div></a>
+
+
+
+</div>
+
+          
+          <a name="top" id="top"></a><br>
+
+          <div class="title_site">Gestion de votre enclos</div>
+
+          <br>
+
+          <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+
+            <tr>
+
+              <td width="90"><div align="left">
+
+                                  
+                   <img src="https://monzoo.net/images/map/vignette_0-0-2.png" />
+
+               
+
+                </div></td>
+
+              <td><table width="100%" height="80" border="0" cellpadding="5" cellspacing="0">
+
+                  <tr>
+
+                    <td bgcolor="#faefdb" style="border-radius:5px;"><strong>Cet espace est constuit :</strong> Enclos Savane n° 1 <br>
+
+                      <strong>Etat de la construction : </strong>Ok<br>
+
+                      
+                      <strong>Niveau de la construction :</strong> Luxe
+                      
+                      
+                      <br />
+
+					  
+	</td>
+
+                  </tr>
+
+                </table></td>
+
+            </tr>
+
+          </table>
+
+          
+       
+
+          
+          <form name="form_vente" method="post" action="vente_animaux_group.php">
+
+          <table width="600" border="0" align="center" cellpadding="0" cellspacing="5">
+
+            <tr>
+
+              <td colspan="6">
+                <div style="margin-bottom:10px; margin-top:10px;"> 
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+<!-- AFFICHAGE MENU ENCLOS -->
+                       <td style="">Afficher<br />                    
+
+                <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)" style="font-size: 18px;" ><option value="https://monzoo.net/enclosgestion1.php?t=0&v=0">- Tout - </option>
+                          <option value="https://monzoo.net/enclosgestion1.php?t=0&v=0&ref=buffle du cap" >Buffle du cap - (2M, 4F, 0&dagger;, 2&#9825;)</option>
+                         <option value="https://monzoo.net/enclosgestion1.php?t=0&v=0&ref=rhinoceros" >Rhinoceros - (2M, 3F, 0&dagger;, 2&#9825;)</option>
+                         
+                        </select>
+						  <br>
+						  <span>M: Mâles, F: Femelles, &dagger;: Mourants<br>
+							  &#9825;: Couples en âge de reproduire</span>
+						  </td>
+						  
+						  
+						  
+						  
+						  
+						  
+
+                        <td  style="" valign="top">Aller &agrave; l'enclos<br /> 
+                          <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)" style="font-size: 18px;">
+                          <option value="https://monzoo.net/enclosgestion1.php?t=0&v=0">- Tout - </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=0" selected="selected">
+                          Savane                           n°1                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=1" >
+                          Savane                           n°2                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=2" >
+                          Savane                           n°3                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=3" >
+                          Savane                           n°4                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=5" >
+                          Savane                           n°6                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=7" >
+                          Savane                           n°8                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=9" >
+                          Savane                           n°10                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=10" >
+                          Bassin                           n°1                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=11" >
+                          Bassin                           n°2                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=12" >
+                          Bassin                           n°3                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=13" >
+                          Bassin                           n°4                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=15" >
+                          Bassin                           n°6                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=20" style="color:#FF0000">
+                          Terre                           n°1                           /!\                          </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=21" >
+                          Terre                           n°2                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=22" >
+                          Terre                           n°3                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=23" >
+                          Terre                           n°4                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=24" >
+                          Terre                           n°5                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=30" >
+                          Foret                           n°1                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=31" >
+                          Foret                           n°2                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=32" >
+                          Foret                           n°3                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=34" >
+                          Foret                           n°5                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=37" >
+                          Foret                           n°8                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=38" >
+                          Foret                           n°9                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=39" style="color:#FF0000">
+                          Foret                           n°10                           /!\                          </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=40" >
+                          Foret                           n°11                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=45" >
+                          Savane                           n°15                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=49" >
+                          Bassin                           n°10                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=51" style="color:#FF0000">
+                          Terre                           n°11                           /!\                          </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=52" >
+                          Terre                           n°12                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=53" >
+                          Terre                           n°13                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=55" >
+                          Terre                           n°15                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=56" >
+                          Foret                           n°12                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=57" >
+                          Foret                           n°13                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=58" >
+                          Foret                           n°14                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=0&v=59" >
+                          Foret                           n°15                                                     </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=1&v=0" style="color:#FF0000">
+                          Voliere                                                    /!\                          </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=1&v=1" >
+                          Aquarium                                                                              </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=1&v=2" >
+                          Vivarium                                                                              </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=1&v=3" style="color:#FF0000">
+                          Noctarium                                                    /!\                          </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=1&v=4" >
+                          Insectarium                                                                              </option>
+                                                    <option value="https://monzoo.net/enclosgestion1.php?t=1&v=5" style="color:#FF0000">
+                          Ile aux dinos                                                    /!\                          </option>
+                                                  </select></td>
+                        <td align="right"><a href="#less"><img src="images/green_arrow_down.png" alt="" width="48" height="48" border="0" /></a></td>
+                      </tr>
+                    </table>      
+              </div>
+
+              <div align="center" style=" margin-top:10px; margin-bottom:10px;">
+
+				 				  <input type="button" value="Achetez de nouveaux animaux pour cet enclos" onClick="javascript:document.location.href='achat_animaux.php?t=0&amp;vtemp=0&amp;v=0'" style="font-size: 18px;" />
+				  		      </div></td>
+            </tr>
+            <tr>
+              <td colspan="6"> <div class="title_site2">
+                  <table width="600" border="0" align="center" cellpadding="8" cellspacing="0">
+                    <tr>
+                      <td><div align="center"><strong>Vos animaux</strong></div></td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+ <tr>
+              <td colspan="6" style="text-align: center; padding-bottom: 10px;">Régler l'âge pour les alertes des animaux mourrants dans la rubrique <a href="https://monzoo.net/moncompte.php">Votre Compte</a></td>
+            </tr>
+			<!-- AFFICHAGE ENCLOS CONSTRUIT -->
+            <tr ><td colspan=6 ><div style='background-color:#faefdb; padding:3px; border-radius:10px;'>&nbsp;<b>Buffle du cap</b>&nbsp;(2<img src='images/icones/icone_male.png' width='12' height='12' vspace='0' hspace='1'> 4<img src='images/icones/icone_female.png' width='12' height='12' vspace='0' hspace='1'> 2<b>&#9825;</b> / <b>23869</b> Zoo'z / <img src='https://monzoo.net/images/boursemini2+.png' /> 2% / <div style='position:relative; top : 2px; display:inline-block;'><div style='position:absolute; left:0px; font-size:9px;  top:-4px; left:0px; '>Missions</div><span style='color:green;'>v</span><span style='color:#cc0000;'>x</span><span style='color:#cc0000;'>x</span><span style='color:#cc0000;'>x</span><span style='color:#cc0000;'>x</span></div>)
+				<div style='float:right; margin-right:5px; '><a href=achat_animaux.php?t=0&amp;vtemp=0&amp;v=0>Acheter</a></div>
+				
+				
+				</div>
+				</td></tr>		    <tr>
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#e2ebdf width="100" align="center">
+					
+					<label for="checkbox0"><img src="images/animaux/savane_buffle du cap.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:4.97px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">7</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_male.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=605883216"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox0" value="605883216" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#e2ebdf width="100" align="center">
+					
+					<label for="checkbox1"><img src="images/animaux/savane_buffle du cap.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:4.97px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">7</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_male.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=605883222"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox1" value="605883222" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox2"><img src="images/animaux/savane_buffle du cap2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:4.97px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">7</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=605883223"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox2" value="605883223" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox3"><img src="images/animaux/savane_buffle du cap2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:4.97px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">7</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=605883224"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox3" value="605883224" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox4"><img src="images/animaux/savane_buffle du cap2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:18.46px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">26</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=607192477"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox4" value="607192477" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox5"><img src="images/animaux/savane_buffle du cap2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:19.88px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">28</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=607367142"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox5" value="607367142" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				            </tr>
+	
+
+            <tr ><td colspan=6  style='padding-top:5px;'><div style='background-color:#faefdb; padding:3px; border-radius:10px;'>&nbsp;<b>Rhinoceros</b>&nbsp;(2<img src='images/icones/icone_male.png' width='12' height='12' vspace='0' hspace='1'> 3<img src='images/icones/icone_female.png' width='12' height='12' vspace='0' hspace='1'> 2<b>&#9825;</b> / <b>15430</b> Zoo'z / <img src='https://monzoo.net/images/boursemini2+.png' /> 3% / <div style='position:relative; top : 2px; display:inline-block;'><div style='position:absolute; left:0px; font-size:9px;  top:-4px; left:0px; '>Missions</div><span style='color:green;'>v</span><span style='color:#cc0000;'>x</span><span style='color:#cc0000;'>x</span><span style='color:#cc0000;'>x</span><span style='color:#cc0000;'>x</span></div>)
+				<div style='float:right; margin-right:5px; '><a href=achat_animaux.php?t=0&amp;vtemp=0&amp;v=0>Acheter</a></div>
+				
+				
+				</div>
+				</td></tr>		    <tr>
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#e2ebdf width="100" align="center">
+					
+					<label for="checkbox6"><img src="images/animaux/savane_rhinoceros.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:42.6px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">60</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_male.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=610241047"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox6" value="610241047" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#e2ebdf width="100" align="center">
+					
+					<label for="checkbox7"><img src="images/animaux/savane_rhinoceros.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:42.6px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">60</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_male.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=610241048"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox7" value="610241048" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox8"><img src="images/animaux/savane_rhinoceros2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:42.6px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">60</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=610241049"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox8" value="610241049" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox9"><img src="images/animaux/savane_rhinoceros2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:42.6px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">60</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=610241050"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox9" value="610241050" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              				<!-- FICHE ANIMAL -->
+ 				<td style="padding: 3px;  " bgcolor=#fdd7d2 width="100" align="center">
+					
+					<label for="checkbox10"><img src="images/animaux/savane_rhinoceros2.jpg" width="80" height="80" style="border-radius: 10px;" /></label>
+              <div style="height:7px; text-align:left; position:relative; width:76px; background-image:url(images/icones/barrevie_fond.png);"><div style=" top:1px; height:5px; left:3px; position:relative; width:61.06px; background-image:url(images/icones/barrevie_remplissage.jpg);"></div>
+				  <div style="position: absolute; left: 73px; top: -8px;"><span style="font-size: 8px; background-color: #FFF; padding:1px;  font-weight: bold; ">86</span></div>					
+					</div>
+                <table width="80" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div align="center" style="margin-top:3px;"><img src="images/icones/icone_female.png" width="20" height="20" vspace="0">&nbsp;<img src="images/icones/adult.png" width="20" height="20" vspace="0">&nbsp;<a href="vente_animaux.php?t=0&v=0&vtemp=0&ids=612231258"><img src="images/icones/icone_achat.png" alt="Vendre" width="20" height="20" vspace="0" border="0"></a><br />
+                      <input type="checkbox" name="vente_group[]" id="checkbox10" value="612231258" />
+					</div></td>
+                  </tr>
+                </table></td>
+				
+			  <!-- //FICHE ANIMAL -->
+              								<td style="padding: 3px;" width="110" ></td>            </tr>
+	
+
+             
+			  
+          </table>
+
+          
+
+          
+
+          <br />
+
+          <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#faefdb">
+
+            <tr>
+
+              <td width="15" style="background-image:url(images/chg.jpg); background-position:top left; background-repeat:no-repeat;"></td>
+
+              <td>&nbsp;</td>
+
+              <td width="15" style="background-image:url(images/chd.jpg); background-position:top right; background-repeat:no-repeat; text-align:right;"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>&nbsp;</td>
+
+              <td><div align="justify" style="line-height:18px;">Pour faire de la vente de masse, s&eacute;l&eacute;ctionnez (cochez) tous les animaux que vous souhaitez vendre et cliquer sur le bouton ci dessous.<br />
+
+                <br />
+
+                  </div>
+
+                  <input name="v" type="hidden" value="0">
+
+		  <input name="t" type="hidden" value="0">
+
+		  <input name="vtemp" type="hidden" value="0">
+
+         <div align="center"> <input type="submit" name="button" id="button" value="Vendre les animaux s&eacute;lectionn&eacute;s" style="font-size: 20px;" /></div>
+
+             </td>
+
+              <td>&nbsp;</td>
+
+            </tr>
+
+            <tr>
+
+              <td style="background-image:url(images/cbg.jpg); background-position:bottom left; background-repeat:no-repeat;"></td>
+
+              <td>&nbsp;</td>
+
+              <td align="right" style="background-image:url(images/cbd.jpg); background-position:bottom right; background-repeat:no-repeat;"></td>
+
+            </tr>
+
+          </table>
+
+    
+
+        </form>
+
+          
+          <br />
+
+          <a name="less" id="less"></a>
+          <a href="#top"></a>
+<div class="title_site2">
+                  <table width="600" border="0" align="center" cellpadding="8" cellspacing="0">
+
+                    <tr>
+
+                      <td><div align="center"><strong>Vos employ&eacute;s</strong></div></td>
+
+                    </tr>
+
+                  </table>
+
+          </div>
+
+          
+                <br />
+
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#faefdb">
+
+                  <tr>
+
+                    <td width="15" style="background-image:url(images/chg.jpg); background-position:top left; background-repeat:no-repeat;"></td>
+
+                    <td>&nbsp;</td>
+
+                    <td width="15" style="background-image:url(images/chd.jpg); background-position:top right; background-repeat:no-repeat; text-align:right;"></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td>&nbsp;</td>
+
+                    <td><div align="justify">N'oubliez pas d'ajouter vos employ&eacute;s dans cet enclos gr&acirc;ce aux icones<strong> (-) et (+)</strong>, vous ne devez y voir aucun chiffre rouge sinon vos enclos et animaux subiront des d&eacute;gats. Chaque employ&eacute; que vous rajoutez coute de l'argent.                      <a href="bureau.php">Voir vos d&eacute;penses</a>.</div></td>
+
+                    <td>&nbsp;</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td style="background-image:url(images/cbg.jpg); background-position:bottom left; background-repeat:no-repeat;"></td>
+
+                    <td>&nbsp;</td>
+
+                    <td align="right" style="background-image:url(images/cbd.jpg); background-position:bottom right; background-repeat:no-repeat;"></td>
+
+                  </tr>
+
+                </table>
+
+                <br />
+
+          <table width="600" height="150" border="0" align="center" cellpadding="4" cellspacing="0">
+
+            <tr>
+
+              <td width="120"><div align="center"><a href="bureau.php">Employ&eacute; simple</a><br>
+
+                <img src="images/personnel/ballayeur.jpg" width="80" height="160"></div></td>
+
+              <td width="120"><div align="center"><a href="bureau.php">Soigneur</a><br>
+
+                <img src="images/personnel/soigneur.jpg" width="80" height="160"></div></td>
+
+              <td width="120"><div align="center"><a href="bureau.php">R&eacute;parateur</a><br>
+
+                <img src="images/personnel/reparateur.jpg" width="80" height="160"></div></td>
+
+              <td width="120"><div align="center"><a href="bureau.php">Gardien</a><br>
+
+                <img src="images/personnel/gardien.jpg" width="80" height="160"></div></td>
+
+             <td width="120"><div align="center"><a href="bureau.php">Paysagiste</a><br>
+
+                <img src="images/personnel/paysagiste.jpg" width="80" height="160"></div>
+				
+				
+				</td>
+            </tr>
+
+            <tr>
+
+              <td align="center"><table width="100" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr>
+
+                    <td width="35"><div align="center"><a href="enclosgestion1.php?per=1&signe=moins&t=0&v=0&moz=15619& #less"><img src="images/moins.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                    <td width="30" align="center" id=grand2>49<br>
+
+                      <hr></td>
+
+                    <td width="35"><div align="center"><a href="enclosgestion1.php?per=1&signe=plus&t=0&v=0&moz=15619& #less"><img src="images/plus.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td>&nbsp;</td>
+
+                    <td width="30" align="center" id="grand">49</td>
+
+                    <td><div align="center"><strong>requis</strong></div></td>
+
+                  </tr>
+
+                </table></td>
+
+              <td align="center"><table width="100" border="0" cellspacing="0" cellpadding="0">
+
+                 
+
+                  <tr>
+
+                    <td width="35"><div align="center" ><a href="enclosgestion1.php?per=2&signe=moins&t=0&v=0&moz=15619& #less"><img src="images/moins.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                    <td align="center" id=grand2>22<br>
+
+                      <hr>                    </td>
+
+                    <td width="35"><div align="center"><a href="enclosgestion1.php?per=2&signe=plus&t=0&v=0&moz=15619& #less"><img src="images/plus.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td>&nbsp;</td>
+
+                    <td width="30" align="center" id="grand">22</td>
+
+                    <td><div align="center"><strong>requis</strong></div></td>
+
+                  </tr>
+
+                </table></td>
+
+              <td align="center"><table width="100" border="0" cellspacing="0" cellpadding="0">
+
+                 
+
+                  <tr>
+
+                    <td width="35"><div align="center" ><a href="enclosgestion1.php?per=3&signe=moins&t=0&v=0&moz=15619& #less"><img src="images/moins.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                    <td align="center" id=grand2>41<br>
+
+                      <hr>                    </td>
+
+                    <td width="35"><div align="center"><a href="enclosgestion1.php?per=3&signe=plus&t=0&v=0&moz=15619& #less"><img src="images/plus.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td>&nbsp;</td>
+
+                    <td width="30" align="center" id="grand">41</td>
+
+                    <td><div align="center"><strong>requis</strong></div></td>
+
+                  </tr>
+
+                </table></td>
+
+              <td align="center"><table width="100" border="0" cellspacing="0" cellpadding="0">
+
+               
+
+                  <tr>
+
+                    <td width="35"><div align="center" ><a href="enclosgestion1.php?per=4&signe=moins&t=0&v=0&moz=15619& #less"><img src="images/moins.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                    <td align="center" id=grand2>15<br>
+
+                      <hr>                    </td>
+
+                    <td width="35"><div align="center"><a href="enclosgestion1.php?per=4&signe=plus&t=0&v=0&moz=15619& #less"><img src="images/plus.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td>&nbsp;</td>
+
+                    <td width="30" align="center" id="grand">15</td>
+
+                    <td><div align="center"><strong>requis</strong></div></td>
+
+                  </tr>
+
+                </table></td>
+
+               <td align="center"><table width="100" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr>
+
+                    <td width="35"><div align="center" ><a href="enclosgestion1.php?per=5&signe=moins&t=0&v=0&moz=15619& #less"><img src="images/moins.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                    <td align="center" id=grand2>20<br>
+
+                      <hr>                    </td>
+
+                    <td width="35"><div align="center"><a href="enclosgestion1.php?per=5&signe=plus&t=0&v=0&moz=15619& #less"><img src="images/plus.gif" width="22" height="23" border="0" align="absmiddle"></a></div></td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td>&nbsp;</td>
+
+                    <td width="30" align="center" id="grand">20<br>                    </td>
+
+                    <td><div align="center"><strong>requis</strong></div></td>
+
+                  </tr>
+
+                </table></td> 				
+				
+				
+
+            </tr>
+
+          </table>
+
+          <br />
+
+        <div align="center" class="Style4">  
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+
+              <td> 
+				  
+				  <div align="center">  <input type="button" value="Rajoutez tous les employ&eacute;s n&eacute;c&eacute;ssaires en un clic" onClick="javascript:document.location.href='enclosgestion1.php?bot=1&amp;t=0&amp;v=0&amp;moz=15619&amp; #less'" style="font-size: 18px;" /></div>
+				  
+				  
+				  
+				  
+				
+			</td>
+
+              <td align="right"><a href="#top"><img src="images/orange_arrow_up.png" alt="" width="48" height="48" border="0" /></a></td>
+
+            </tr>
+
+          </table>
+
+         </div>
+
+                    <br>
+        </td>
+      </tr>
+    </table>
+      </div>
+  <div style="clear:both;"></div>
+  <div class="copy"></div>
+</div>
+<div align="center" style=" margin: auto; font-size:13px; width:825px; margin-top:5px; text-align: justify;">
+
+<h1 style="font-size: 14px; color: #634425; font-weight: normal; float: none;"><a href="https://monzoo.net" title="jeu de zoo">Monzoo.net</a>, le plus ancien des <strong>jeux de zoo</strong>, souvent copi&eacute;, jamais &eacute;gal&eacute;. Jouez <strong>gratuitement</strong> &agrave; votre nouveau <strong>jeu de simulation de parc animalier</strong>. </h1>
+
+<!--
+	<div style="text-align: center;">
+	<div class="fb-like" data-href="https://monzoo.net" data-width="" data-layout="box_count" data-action="like" data-size="small" data-share="true" style="margin-top: 12px;"></div>
+</div>-->
+  <h2 style="font-size: 14px; color: #634425; font-weight: normal;">Construisez votre parc selon vos envies, enclos, hotel, train, attractions, boutiques...
+	  Elevez vos <strong>animaux</strong>, leurs b&eacute;b&eacute;s et prenez soin de + de 300 esp&egrave;ces animales diff&eacute;rentes ainsi que des <strong>dinosaures</strong> de l'extension dinosoria !
+  G&eacute;rez librement vos employ&eacute;s, vos d&eacute;penses, vos recettes, vos stocks ...
+  De nombreuses occupations vous attendent, missions, explorations, collections... et des surprises !</h2>
+  <strong>Partenaires :</strong> <a href="https://lasagadulancier.com/" title="impressions de figurines 3D" target="_blank">La Saga du lancier</a>
+</div>
+</body>
+</html>
+
