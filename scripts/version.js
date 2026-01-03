@@ -9,11 +9,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageJsonPath = path.join(__dirname, '../package.json');
 
 const version = process.argv[2];
+const customCommit = process.argv[3];
 
 if (!version) {
   console.error('❌ Version argument is required');
-  console.error('Usage: npm run version <version>');
+  console.error('Usage: npm run version <version> [commit-message]');
   console.error('Example: npm run version 1.0.2');
+  console.error('Example: npm run version 1.0.2 "feat: add new feature"');
   process.exit(1);
 }
 
@@ -40,12 +42,13 @@ try {
   execSync('git add .', { cwd: path.join(__dirname, '..') });
   console.log(`✓ Staged package.json`);
 
-  // Commit
+  // Commit with custom or default message
+  const commitMessage = customCommit || `chore: bump version to ${version}`;
   console.log(`💾 Committing changes...`);
-  execSync(`git commit -m "chore: bump version to ${version}"`, {
+  execSync(`git commit -m "${commitMessage}"`, {
     cwd: path.join(__dirname, '..'),
   });
-  console.log(`✓ Committed with message: chore: bump version to ${version}`);
+  console.log(`✓ Committed with message: ${commitMessage}`);
 
   // Push commit
   console.log(`🚀 Pushing commit...`);
