@@ -1,6 +1,6 @@
 {
   "name": "monzoo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "electron/main.fixed.js",
   "scripts": {
@@ -35,8 +35,22 @@
     "mac": {
       "category": "public.app-category.utilities",
       "target": [
-        "dmg",
-        "zip"
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64",
+            "universal"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64",
+            "universal"
+          ]
+        }
       ]
     },
     "dmg": {
