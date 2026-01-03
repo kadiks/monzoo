@@ -38,22 +38,34 @@ try {
   console.log(`✓ Updated package.json: ${oldVersion} → ${version}`);
 
   // Stage the change
-  console.log(`📝 Staging package.json...`);
+  console.log(`📝 Staging changes...`);
   execSync('git add .', { cwd: path.join(__dirname, '..') });
-  console.log(`✓ Staged package.json`);
+  console.log(`✓ Staged changes`);
 
-  // Commit with custom or default message
-  const commitMessage = customCommit || `chore: bump version to ${version}`;
-  console.log(`💾 Committing changes...`);
-  execSync(`git commit -m "${commitMessage}"`, {
-    cwd: path.join(__dirname, '..'),
-  });
-  console.log(`✓ Committed with message: ${commitMessage}`);
+  // Check if there's anything to commit
+  let hasChanges = false;
+  try {
+    execSync('git diff --cached --quiet', { cwd: path.join(__dirname, '..') });
+  } catch {
+    hasChanges = true;
+  }
 
-  // Push commit
-  console.log(`🚀 Pushing commit...`);
-  execSync('git push origin', { cwd: path.join(__dirname, '..') });
-  console.log(`✓ Pushed commit to origin`);
+  if (hasChanges) {
+    // Commit with custom or default message
+    const commitMessage = customCommit || `chore: bump version to ${version}`;
+    console.log(`💾 Committing changes...`);
+    execSync(`git commit -m "${commitMessage}"`, {
+      cwd: path.join(__dirname, '..'),
+    });
+    console.log(`✓ Committed with message: ${commitMessage}`);
+
+    // Push commit
+    console.log(`🚀 Pushing commit...`);
+    execSync('git push origin', { cwd: path.join(__dirname, '..') });
+    console.log(`✓ Pushed commit to origin`);
+  } else {
+    console.log(`ℹ️  No changes to commit, skipping commit step`);
+  }
 
   // Create and push tag
   const tag = `v${version}`;
@@ -67,7 +79,9 @@ try {
 
   console.log(`\n✅ Version bump complete!`);
   console.log(`   - Updated package.json to ${version}`);
-  console.log(`   - Committed and pushed changes`);
+  if (hasChanges) {
+    console.log(`   - Committed and pushed changes`);
+  }
   console.log(`   - Created and pushed tag ${tag}`);
   console.log(`   - GitHub Actions workflow should start building...`);
 } catch (error) {
