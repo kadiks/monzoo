@@ -1,6 +1,6 @@
 {
   "name": "monzoo",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "main": "electron/main.fixed.js",
   "scripts": {
@@ -22,7 +22,8 @@
     "dotenv": "^16.4.5",
     "node-cron": "^3.0.3",
     "keytar": "^7.9.0",
-    "tough-cookie": "^6.0.0"
+    "tough-cookie": "^6.0.0",
+    "electron-updater": "^6.1.7"
   },
   "devDependencies": {
     "electron": "^31.0.0",

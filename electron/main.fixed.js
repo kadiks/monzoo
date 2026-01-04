@@ -4,6 +4,7 @@ import cron from 'node-cron';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { initAutoUpdater } from './updater.js';
 import keytar from 'keytar';
 import path from 'path';
 import { runMonzooCycle } from '../index.js';
@@ -359,6 +360,9 @@ app.whenReady().then(() => {
   createTray();
   reschedule();
   updateMenu();
+  
+  // Initialize auto-updater
+  initAutoUpdater(logsWindow);
   
   // Set app to open at login
   app.setLoginItemSettings({
