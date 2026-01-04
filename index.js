@@ -176,7 +176,7 @@ const getAllEnclosureInNeed = async () => {
   }
 
   // Save HTML to fixtures for debugging
-  saveHtmlFixture(html, "enclosgestion1");
+  // saveHtmlFixture(html, "enclosgestion1");
 
   // const html = loadHtmlFixture('enclosgestion1-2025-12-31T15-41-23.html');
 
